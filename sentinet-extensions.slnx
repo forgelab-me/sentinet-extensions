@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/CustomMonitoringFilter.Tests/CustomMonitoringFilter.Tests.csproj" />
+  <Project Path="src/CustomMonitoringFilter/CustomMonitoringFilter.csproj" />
+</Solution>
