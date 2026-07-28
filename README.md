@@ -13,11 +13,12 @@ This repository provides open-source extensions to enhance Sentinet's monitoring
 A monitoring filter that provides configurable obfuscation of sensitive data in HTTP traffic monitoring.
 
 **Key Features:**
-- JWT token signature hashing with SHA256
-- Authorization header obfuscation (Bearer, Basic, NTLM, Negotiate)
-- Configurable field-level obfuscation for JSON payloads
-- Regex-based pattern matching
-- Recursive processing of nested structures
+
+* JWT token signature hashing with SHA256
+* Authorization header obfuscation (Bearer, Basic, NTLM, Negotiate)
+* Configurable field-level obfuscation for JSON payloads
+* Regex-based pattern matching
+* Recursive processing of nested structures
 
 📖 [Full Documentation](src/CustomMonitoringFilter/README.md)
 
@@ -29,10 +30,10 @@ Custom alerting extensions for Sentinet monitoring events.
 
 ### Prerequisites
 
-- .NET 10.0 SDK or later
-- Visual Studio 2022/2026 or compatible IDE
-- Nevatech Sentinet 7.0.1905 or later
-- Valid Sentinet license
+* .NET 10.0 SDK or later
+* Visual Studio 2022/2026 or compatible IDE
+* Nevatech Sentinet 7.0.1905 or later
+* Valid Sentinet license
 
 ### Building the Solution
 
@@ -53,7 +54,7 @@ dotnet test
 Each extension includes specific deployment instructions in its project README. General steps:
 
 1. Build the solution in Release mode
-2. Locate the compiled DLL in `src/[ProjectName]/bin/Release/net10.0/`
+2. Locate the compiled DLL in `src/\\\[ProjectName]/bin/Release/net10.0/`
 3. Copy to your Sentinet Node installation directory under `extensions/`
 4. Restart the Sentinet Node service
 5. Configure the extension via Sentinet Console
@@ -88,11 +89,11 @@ Contributions are welcome. Please:
 
 ### Code Standards
 
-- Target .NET 10.0
-- Enable nullable reference types
-- Follow C# coding conventions
-- Add XML documentation comments for public APIs
-- Maintain test coverage for new features
+* Target .NET 10.0
+* Enable nullable reference types
+* Follow C# coding conventions
+* Add XML documentation comments for public APIs
+* Maintain test coverage for new features
 
 ## License
 
@@ -106,23 +107,16 @@ For Sentinet licensing: https://www.nevatech.com/sentinet
 
 ## Acknowledgments
 
-- Built for [Nevatech Sentinet](https://www.nevatech.com/sentinet) API Management Platform
-- Uses [Newtonsoft.Json](https://www.newtonsoft.com/json) for JSON processing
+* Built for [Nevatech Sentinet](https://www.nevatech.com/sentinet) API Management Platform
+* Uses [Newtonsoft.Json](https://www.newtonsoft.com/json) for JSON processing
 
 ## Support
 
-- **Issues**: Open an issue in this repository
-- **Sentinet Support**: Contact Nevatech for platform-specific issues
-- **Documentation**: Check individual project README files
+* **Issues**: Open an issue in this repository
+* **Sentinet Support**: Contact Nevatech for platform-specific issues
+* **Documentation**: Check individual project README files
 
-## Roadmap
-
-- [x] CustomMonitoringFilter - Data obfuscation
-- [ ] CustomAlert - Advanced alerting
-- [ ] Additional monitoring filters
-- [ ] Performance optimizations
-- [ ] Extended MIME type support
-
----
+\---
 
 **Note**: These are community extensions and are not officially supported by Nevatech.
+

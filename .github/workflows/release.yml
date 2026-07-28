@@ -1,0 +1,58 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Triggers on version tags like v1.0.0
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build solution
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Run tests
+      run: dotnet test --configuration Release --no-build --verbosity normal
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: src/CustomMonitoringFilter/bin/Release/net10.0/CustomMonitoringFilter.dll
+        body: |
+          ## CustomMonitoringFilter ${{ github.ref_name }}
+
+          ### Installation
+          1. Download `CustomMonitoringFilter.dll`
+          2. Copy to your Sentinet Node `extensions` folder
+          3. Restart the Sentinet Node service
+          4. Configure the filter in Sentinet Console
+
+          ### Requirements
+          - .NET 10.0 or later
+          - Nevatech Sentinet 7.0.1905 or compatible
+
+          ### Security
+          - Verify DLL checksum: `Get-FileHash CustomMonitoringFilter.dll -Algorithm SHA256`
+          - See [SECURITY.md](https://github.com/forgelab-me/sentinet-extensions/blob/main/SECURITY.md)
+
+          See [README](https://github.com/forgelab-me/sentinet-extensions/blob/main/src/CustomMonitoringFilter/README.md) for detailed documentation.
+        draft: false
+        prerelease: false
+        generate_release_notes: true
